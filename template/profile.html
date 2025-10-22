@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ user.picture.large }}" alt="Profile Picture" class="profile-image">
+        </div>
+        
+        <div class="content">
+            <div class="name">{{ user.name.title }} {{ user.name.first }} {{ user.name.last }}</div>
+            <div class="username">@{{ user.login.username }}</div>
+            
+            <div class="info-section">
+                <div class="info-label">Email</div>
+                <div class="info-value">{{ user.email }}</div>
+            </div>
+            
+            <div class="info-section">
+                <div class="info-label">Ubicación</div>
+                <div class="info-value">
+                    {{ user.location.city }}, {{ user.location.state }}<br>
+                    {{ user.location.country }}
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="info-section">
+                    <div class="info-label">Teléfono</div>
+                    <div class="info-value">{{ user.phone }}</div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-label">Celular</div>
+                    <div class="info-value">{{ user.cell }}</div>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="info-section">
+                    <div class="info-label">Edad</div>
+                    <div class="info-value">{{ user.dob.age }} años</div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-label">Nacionalidad</div>
+                    <div class="info-value">{{ user.nat }}</div>
+                </div>
+            </div>
+            
+            <form method="GET">
+                <button type="submit" class="reload-btn">🔄 Generar Nuevo Perfil</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
